@@ -21,5 +21,14 @@ body {
 }
 
 .img__item {
-    margin-left: 35px;
+  margin-left: 35px;
+}
+
+.search-form {
+    border-radius: 15px;
+  background-color: #212121;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
