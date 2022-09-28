@@ -9,7 +9,7 @@ async function fetchImg(name, page) {
     .get(
       `${url}?key=${key}&q=${name}&image_type=photo&orientation=horizontal&page=${page}&per_page=30`
     )
-    .then(response => response.data)
+    .then(response => response.json())
     .catch(error => console.log(error));
 
   return response;
