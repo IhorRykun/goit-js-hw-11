@@ -6,7 +6,7 @@ import NewsApiGalleryService from './fetchImg';
 //  ! Імпорт  функції рендеру розмітки
 import { renderGalery } from './renderGalery';
 
-const div = document.querySelector('.gallery');
+const gallery = document.querySelector('.gallery');
 
 let isShow = 0;
 const form = document.querySelector('#search-form');
@@ -20,11 +20,11 @@ form.addEventListener('submit', submitImgForm);
 function submitImgForm(e) {
   e.preventDefault();
   if (e.currentTarget.elements.searchQuery.value === '') {
-    return (innerHTML = '');
+    return innerHTML = '';
   }
   GalleryEl.query = e.target.elements.searchQuery.value.trim();
   let isShow = 0;
-  div.innerHTML = '';
+  gallery.innerHTML = '';
   GalleryEl.resetPage();
   fetchImg();
 }
