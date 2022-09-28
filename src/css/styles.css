@@ -45,3 +45,9 @@ body {
     display: flex;
     justify-content: center;
 }
+
+.gallery-item__img {
+    width: 450px;
+    height: auto;
+    margin-left:20px;
+}
