@@ -1,16 +1,32 @@
-//  !   функція запиту API
+//  !   клас запиту API
 import axios from 'axios';
-export { fetchImg };
 
-const url = `https://pixabay.com/api/`;
+  export default class NewsApiGalleryService {
+        constructor() {
+            this.searchQuery = '';
+            this.page = 1;
+        }
+
+async fetchImg() {
+ const url = `https://pixabay.com/api/`;
 const key = '30187143-4d7f5699d03729238b163605a';
-async function fetchImg(name, page) {
-  const response = await axios
-    .get(
-      `${url}?key=${key}&q=${name}&image_type=photo&orientation=horizontal&page=${page}&per_page=40`
-    )
-    .then(response => response.data)
-    .catch(error => console.log(error));
-
-  return response;
+    const response = await axios
+        .get(`${url}?key=${key}&q=${this.searchQuery}&image_type=photo&orientation=horizontal&page=${this.page}&per_page=40`
+        );
+    return response.data;
 }
+
+  incrementPage() {
+        this.page += 1;
+    }
+
+    resetPage() {
+        this.page = 1;
+    }
+    get query() {
+        return this.searchQuery;
+    }
+    set query(newQuery) {
+        this.searchQuery = newQuery;
+    }
+  }
