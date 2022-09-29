@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   list-style: none;
+  text-decoration: none;
 }
 
 body {
@@ -70,6 +71,12 @@ body {
     margin: 15px;
     text-align: center;
     text-decoration: none;
+
+}
+
+.info-item:hover,
+.info-item:focus {
+    color:red;
 }
 
 .button__search {
