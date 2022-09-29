@@ -40,14 +40,32 @@ body {
     background-color:rgba(0,0,0,0.3);
 }
 
+.gallery-item {
+    margin:10px;
+}
+
 
 .info {
     display: flex;
     justify-content: center;
+    border: 2px solid white;
+    width: 450px;
+    border-radius:15px;
+
 }
 
 .gallery-item__img {
     width: 450px;
     height: auto;
-    margin-left:20px;
+    border-radius:15px;
+}
+
+.gallery-item__img:hover  {
+    transform: scale(1.1);
+}
+
+.info-item {
+    margin: 15px;
+    text-align: center;
+    text-decoration: none;
 }
