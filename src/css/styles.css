@@ -84,6 +84,7 @@ body {
 .button__search:focus {
     color:white;
     background-color:rgb(23, 119, 209);
+    outline: 2px solid white;
 }
 
 .input__search {
