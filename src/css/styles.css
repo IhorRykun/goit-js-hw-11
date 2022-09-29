@@ -102,3 +102,13 @@ body {
     color:white;
     background-color:rgb(23, 119, 209);
 }
+
+.container__button {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.is__hiden {
+    display: none;
+}
