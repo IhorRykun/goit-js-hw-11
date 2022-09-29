@@ -69,3 +69,36 @@ body {
     text-align: center;
     text-decoration: none;
 }
+
+.button__search {
+    cursor: pointer;
+    border-radius:15px;
+    width: 75px;
+    height:30px;
+    margin-left: 5px;
+}
+
+.button__search:hover,
+.button__search:focus {
+    color:white;
+    background-color:rgb(23, 119, 209);
+}
+
+.input__search {
+    border-radius:10px;
+    height: 30px;
+    width: 250px;
+}
+
+.button__add {
+       cursor: pointer;
+    border-radius:10px;
+    width: 150px;
+    height:30px;  
+}
+
+.button__add:hover,
+.button__add:focus {
+    color:white;
+    background-color:rgb(23, 119, 209);
+}
