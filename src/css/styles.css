@@ -59,6 +59,7 @@ body {
     width: 450px;
     height: auto;
     border-radius:15px;
+    outline: 2px solid white;
 }
 
 .gallery-item__img:hover  {
@@ -109,7 +110,7 @@ body {
     justify-content: center;
     margin-top: 25px;
 }
-/* 
-/* .is_hiden {
+
+.is_hiden {
     display: none;
-} */ */
+}

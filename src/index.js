@@ -8,31 +8,28 @@ import { renderGalery } from './renderGalery';
 
 const gallery = document.querySelector('.gallery');
 const buttonAddImg = document.querySelector('.button__add');
+const buttonSubmitClickIshiden = document.querySelector('.button__search');
+const divContainer = document.querySelector('.container__button');
 
 let isShow = 0;
 const form = document.querySelector('#search-form');
 // !    Змінна для того щоб отримати об"єкт
 const GalleryEl = new NewsApiGalleryService();
 
-let pageNumber = 1;
 
 form.addEventListener('submit', submitImgForm);
 
 function submitImgForm(e) {
   e.preventDefault();
   if (e.currentTarget.elements.searchQuery.value === '') {
-    return innerHTML = '';
+    return (innerHTML = '');
   }
   GalleryEl.query = e.target.elements.searchQuery.value.trim();
   let isShow = 0;
   gallery.innerHTML = '';
   GalleryEl.resetPage();
     fetchImg();
-}
 
-function onLoadMore() {
-  GalleryEl.incrementPage();
-  fetchImg();
 }
 
 async function fetchImg() {
@@ -49,9 +46,21 @@ async function fetchImg() {
   isShow += hits.length;
 }
 
-
 // ! Функція яка добавляє картинки оп кліці на кнопку
 
 buttonAddImg.addEventListener('click', onLoadMore);
 
+function onLoadMore() {
+  GalleryEl.incrementPage();
+  fetchImg();
+    isShow += 1;
+}
 
+// !    Йункцыя яка забираэ клас is_hiden
+
+buttonSubmitClickIshiden.addEventListener('click', removeClasslist);
+
+
+function removeClasslist() {
+    divContainer.classList.remove("is_hiden");
+}
