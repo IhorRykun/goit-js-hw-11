@@ -7,6 +7,7 @@ import NewsApiGalleryService from './fetchImg';
 import { renderGalery } from './renderGalery';
 
 const gallery = document.querySelector('.gallery');
+const buttonAddImg = document.querySelector('.button__add');
 
 let isShow = 0;
 const form = document.querySelector('#search-form');
@@ -26,7 +27,7 @@ function submitImgForm(e) {
   let isShow = 0;
   gallery.innerHTML = '';
   GalleryEl.resetPage();
-  fetchImg();
+    fetchImg();
 }
 
 function onLoadMore() {
@@ -47,3 +48,10 @@ async function fetchImg() {
 
   isShow += hits.length;
 }
+
+
+// ! Функція яка добавляє картинки оп кліці на кнопку
+
+buttonAddImg.addEventListener('click', onLoadMore);
+
+
