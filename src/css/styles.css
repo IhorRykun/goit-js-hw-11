@@ -104,6 +104,8 @@ body {
 .button__add:focus {
     color:white;
     background-color:rgb(23, 119, 209);
+    border:2px solid white;
+    outline: 2px solid black;
 }
 
 .container__button {

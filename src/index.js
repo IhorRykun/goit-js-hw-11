@@ -29,6 +29,7 @@ function submitImgForm(e) {
   gallery.innerHTML = '';
   GalleryEl.resetPage();
     fetchImg();
+     divContainer.classList.remove('is_hiden');
 
 }
 
@@ -58,9 +59,9 @@ function onLoadMore() {
 
 // !    Йункцыя яка забираэ клас is_hiden
 
-buttonSubmitClickIshiden.addEventListener('click', removeClasslist);
+// buttonSubmitClickIshiden.addEventListener('click', removeClasslist);
 
 
-function removeClasslist() {
-    divContainer.classList.remove("is_hiden");
-}
+// function removeClasslist() {
+//     divContainer.classList.remove("is_hiden");
+// }
