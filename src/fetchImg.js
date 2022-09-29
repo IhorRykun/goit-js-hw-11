@@ -10,8 +10,9 @@ import axios from 'axios';
 async fetchImg() {
  const url = `https://pixabay.com/api/`;
 const key = '30187143-4d7f5699d03729238b163605a';
-    const response = await axios
-        .get(`${url}?key=${key}&q=${this.searchQuery}&image_type=photo&orientation=horizontal&page=${this.page}`);
+    const response = await axios.get(
+      `${url}?key=${key}&q=${this.searchQuery}&image_type=photo&orientation=horizontal&page=${this.page}&per_page=30`
+    );
     return response.data;
 }
 
