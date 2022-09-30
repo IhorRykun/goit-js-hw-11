@@ -5,6 +5,7 @@ import Notiflix from 'notiflix';
 import NewsApiGalleryService from './fetchImg';
 //  ! Імпорт  функції рендеру розмітки
 import { renderGalery } from './renderGalery';
+import { intersection } from 'lodash';
 
 const gallery = document.querySelector('.gallery');
 const buttonAddImg = document.querySelector('.button__add');
@@ -27,7 +28,8 @@ function submitImgForm(e) {
   gallery.innerHTML = '';
   GalleryEl.resetPage();
     fetchImg();
-     divContainer.classList.remove('is_hiden');
+    //  divContainer.classList.remove('is_hiden');
+    registerIntersetObserv();
 
 }
 
@@ -47,12 +49,12 @@ async function fetchImg() {
 
 // ! Функція яка добавляє картинки оп кліці на кнопку
 
-buttonAddImg.addEventListener('click', onLoadMore);
+// buttonAddImg.addEventListener('click', onLoadMore);
 
-function onLoadMore() {
-  GalleryEl.incrementPage();
-  fetchImg();
-}
+// function onLoadMore() {
+//   GalleryEl.incrementPage();
+//   fetchImg();
+// }
 
 // !    Йункцыя яка забираэ клас is_hiden
 
@@ -62,3 +64,23 @@ function onLoadMore() {
 // function removeClasslist() {
 //     divContainer.classList.remove("is_hiden");
 // }
+
+
+
+function registerIntersetObserv() {
+    const onEntry = entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && GalleryEl.query !== "") {
+                GalleryEl.incrementPage();
+                fetchImg();
+            }
+        });
+    };
+    const options = {
+      rootMargin: '200px',
+    };
+
+
+    const observe = new IntersectionObserver(onEntry, options);
+    observe.observe(divContainer);
+}
