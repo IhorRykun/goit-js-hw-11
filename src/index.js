@@ -1,11 +1,13 @@
 import './css/styles.css';
 import Notiflix from 'notiflix';
+import { throttle } from 'lodash';
+
 
 //  ! імпорт  класу  запиту API
 import NewsApiGalleryService from './fetchImg';
 //  ! Імпорт  функції рендеру розмітки
 import { renderGalery } from './renderGalery';
-import { intersection } from 'lodash';
+
 
 const gallery = document.querySelector('.gallery');
 const buttonAddImg = document.querySelector('.button__add');
@@ -17,7 +19,7 @@ const form = document.querySelector('#search-form');
 const GalleryEl = new NewsApiGalleryService();
 
 
-form.addEventListener('submit', submitImgForm);
+form.addEventListener('submit',submitImgForm);
 
 function submitImgForm(e) {
   e.preventDefault();
@@ -56,7 +58,7 @@ async function fetchImg() {
 //   fetchImg();
 // }
 
-// !    Йункцыя яка забираэ клас is_hiden
+// !    Функція яка забираэ клас is_hiden
 
 // buttonSubmitClickIshiden.addEventListener('click', removeClasslist);
 
@@ -67,6 +69,7 @@ async function fetchImg() {
 
 
 // !    Функція безкінечного скролу
+
 function registerIntersetObserv() {
     const onEntry = entries => {
         entries.forEach(entry => {
