@@ -66,7 +66,7 @@ async function fetchImg() {
 // }
 
 
-
+// !    Функція безкінечного скролу
 function registerIntersetObserv() {
     const onEntry = entries => {
         entries.forEach(entry => {
