@@ -5,6 +5,7 @@ import { throttle } from 'lodash';
 
 //  ! імпорт  класу  запиту API
 import NewsApiGalleryService from './fetchImg';
+
 //  ! Імпорт  функції рендеру розмітки
 import { renderGalery } from './renderGalery';
 
@@ -15,11 +16,15 @@ const buttonSubmitClickIshiden = document.querySelector('.button__search');
 const divContainer = document.querySelector('.container__button');
 
 const form = document.querySelector('#search-form');
+
+
 // !    Змінна для того щоб отримати об"єкт
 const GalleryEl = new NewsApiGalleryService();
 
 
 form.addEventListener('submit',submitImgForm);
+
+// !    Функція самбіту форми запитів 
 
 function submitImgForm(e) {
   e.preventDefault();
@@ -48,7 +53,6 @@ async function fetchImg() {
        divContainer.classList.add('is_hiden');
   }
   renderGalery(hits);
-
 }
 
 // !    Функція безкінечного скролу
