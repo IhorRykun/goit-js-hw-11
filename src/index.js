@@ -32,7 +32,6 @@ function submitImgForm(e) {
     fetchImg();
     //  divContainer.classList.remove('is_hiden');
     registerIntersetObserv();
-
 }
 
 async function fetchImg() {
@@ -48,25 +47,6 @@ async function fetchImg() {
   renderGalery(hits);
 
 }
-
-// ! Функція яка добавляє картинки оп кліці на кнопку
-
-// buttonAddImg.addEventListener('click', onLoadMore);
-
-// function onLoadMore() {
-//   GalleryEl.incrementPage();
-//   fetchImg();
-// }
-
-// !    Функція яка забираэ клас is_hiden
-
-// buttonSubmitClickIshiden.addEventListener('click', removeClasslist);
-
-
-// function removeClasslist() {
-//     divContainer.classList.remove("is_hiden");
-// }
-
 
 // !    Функція безкінечного скролу
 
@@ -87,3 +67,31 @@ function registerIntersetObserv() {
     const observe = new IntersectionObserver(onEntry, options);
     observe.observe(divContainer);
 }
+
+
+
+
+
+
+
+
+
+
+
+// ! Функція яка добавляє картинки оп кліці на кнопку
+
+// buttonAddImg.addEventListener('click', onLoadMore);
+
+// function onLoadMore() {
+//   GalleryEl.incrementPage();
+//   fetchImg();
+// }
+
+// !    Функція яка забираэ клас is_hiden
+
+// buttonSubmitClickIshiden.addEventListener('click', removeClasslist);
+
+
+// function removeClasslist() {
+//     divContainer.classList.remove("is_hiden");
+// }
