@@ -30,7 +30,7 @@ function submitImgForm(e) {
   gallery.innerHTML = '';
   GalleryEl.resetPage();
     fetchImg();
-    //  divContainer.classList.remove('is_hiden');
+     divContainer.classList.remove('is_hiden');
     registerIntersetObserv();
 }
 
