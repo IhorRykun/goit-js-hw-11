@@ -17,6 +17,7 @@ const divContainer = document.querySelector('.container__button');
 
 const form = document.querySelector('#search-form');
 
+let isShow = 0;
 
 // !    Змінна для того щоб отримати об"єкт
 const GalleryEl = new NewsApiGalleryService();
@@ -29,76 +30,97 @@ form.addEventListener('submit',submitImgForm);
 function submitImgForm(e) {
   e.preventDefault();
     if (e.currentTarget.elements.searchQuery.value === '') {
-          Notiflix.Notify.failure(
-            'Sorry, there are no images matching your search query. Please try again.'
-          );
-    return;
+    return (innerHTML = '');
   }
   GalleryEl.query = e.target.elements.searchQuery.value.trim();
-  gallery.innerHTML = '';
+    gallery.innerHTML = '';
+    isShow = 0;
   GalleryEl.resetPage();
     fetchImg();
-     divContainer.classList.remove('is_hiden');
-    registerIntersetObserv();
+    // registerIntersetObserv(); // функція безкінечного скролу
 }
 
 async function fetchImg() {
-  const response = await GalleryEl.fetchImg();
-  const { hits } = response;
+      removeClasslist();
+    const response = await GalleryEl.fetchImg();
+  const { hits, total } = response;
 
     if (!hits.length) {
          Notiflix.Notify.failure(
            'Sorry, there are no images matching your search query. Please try again.'
          );
-       divContainer.classList.add('is_hiden');
   }
-  renderGalery(hits);
+    renderGalery(hits);
+    isShow += hits.length;
+    if (isShow < total) {
+        
+    }
+    if (isShow >= total) {
+        addClasslist();
+        Notiflix.Notify.info(
+            'We re sorry, but you have reached the end of search results.'
+            
+        );
+    }
 }
-
-// !    Функція безкінечного скролу
-
-function registerIntersetObserv() {
-    const onEntry = entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && GalleryEl.query !== "") {
-                GalleryEl.incrementPage();
-                fetchImg();
-            }
-        });
-    };
-    const options = {
-      rootMargin: '200px',
-    };
-
-
-    const observe = new IntersectionObserver(onEntry, options);
-    observe.observe(divContainer);
-}
-
-
-
-
-
-
-
-
-
-
 
 // ! Функція яка добавляє картинки оп кліці на кнопку
 
-// buttonAddImg.addEventListener('click', onLoadMore);
+buttonAddImg.addEventListener('click', onLoadMore);
 
-// function onLoadMore() {
-//   GalleryEl.incrementPage();
-//   fetchImg();
+function onLoadMore() {
+  GalleryEl.incrementPage();
+  fetchImg();
+}
+
+
+buttonSubmitClickIshiden.addEventListener('click', removeClasslist);
+
+
+function removeClasslist() {
+    divContainer.classList.remove("is_hiden");
+}
+function addClasslist() {
+  divContainer.classList.add('is_hiden');
+}
+
+
+
+
+
+
+
+
+
+
+// !    Функція безкінечного скролу
+
+// function registerIntersetObserv() {
+//     const onEntry = entries => {
+//         entries.forEach(entry => {
+//             if (entry.isIntersecting && GalleryEl.query !== "") {
+//                 GalleryEl.incrementPage();
+//                 fetchImg();
+//             }
+//         });
+//     };
+//     const options = {
+//       rootMargin: '200px',
+//     };
+
+
+//     const observe = new IntersectionObserver(onEntry, options);
+//     observe.observe(divContainer);
 // }
 
-// !    Функція яка забираэ клас is_hiden
-
-// buttonSubmitClickIshiden.addEventListener('click', removeClasslist);
 
 
-// function removeClasslist() {
-//     divContainer.classList.remove("is_hiden");
-// }
+
+
+
+
+
+
+
+
+
