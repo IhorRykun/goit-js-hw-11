@@ -81,21 +81,15 @@ function onLoadMore() {
 
 buttonSubmitClickIshiden.addEventListener('click', removeClasslist);
 
-
+// !    Функція видалення класу
 function removeClasslist() {
     divContainer.classList.remove("is_hiden");
 }
+
+// !    Функція додавання класу
 function addClasslist() {
   divContainer.classList.add('is_hiden');
 }
-
-
-
-
-
-
-
-
 
 
 // !    Функція безкінечного скролу
