@@ -30,7 +30,12 @@ form.addEventListener('submit',submitImgForm);
 function submitImgForm(e) {
   e.preventDefault();
     if (e.currentTarget.elements.searchQuery.value === '') {
-    return (innerHTML = '');
+        addClasslist();
+           Notiflix.Notify.failure(
+             'Sorry, there are no images matching your search query. Please try again.'
+           );
+        return (innerHTML = '');
+    
   }
   GalleryEl.query = e.target.elements.searchQuery.value.trim();
     gallery.innerHTML = '';
